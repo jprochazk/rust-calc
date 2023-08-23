@@ -1,6 +1,40 @@
 
 Rust-hosted programming languages
 
+
+
+My journey
+  - craftinginterpreters (TS, Rust)
+  - a few toy languages (TS, C++, Rust)
+  - one toy language which a few people are using a bit
+    - i want to polish it up and actually "release" it into the wild
+  - trying to match the performance of Lua 5.4, Python 3.11, Node.js `--jitless`
+
+Why I think Rust is ideal for this task
+  - Ergonomics (enums, pattern matching)
+  - Performance
+  - Ecosystem
+    - infinite choices for parsing
+    - excellent tooling (the usual `clippy`, `r-a`, but especially `miri`)
+    - LLVM bindings if you're so inclined
+
+Before I elaborate, let's build a programming language
+
+1. Parser -> AST (parse)
+2. Recursive AST eval (fold)
+
+: show a bunch of code, walk through it
+
+Let's measure its performance
+
+
+
+
+
+
+
+-----------------
+
 answer:
 Is Rust viable?
 Is it good?
