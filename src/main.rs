@@ -524,7 +524,8 @@ fn main() {
                         continue;
                     }
                 };
-                let value = fold(&expr);
+                let ops = compile(&expr);
+                let value = exec(&ops);
                 println!("{value}");
             }
             Err(ReadlineError::Interrupted | ReadlineError::Eof) => break,
