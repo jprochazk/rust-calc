@@ -24,7 +24,7 @@ fn main() {
 }
 
 fn gen() {
-    let expr = calc::Expr::generate();
+    let expr = calc::expr::Expr::generate();
     println!("{expr}");
 }
 
@@ -36,15 +36,15 @@ fn repl() {
                 if line.is_empty() {
                     continue;
                 }
-                let expr = match calc::parse(&line) {
+                let expr = match calc::parser::parse(&line) {
                     Ok(expr) => expr,
                     Err(e) => {
                         eprintln!("\n{}", e.report());
                         continue;
                     }
                 };
-                let ops = calc::compile(&expr);
-                let value = calc::exec(&ops);
+                let ops = calc::compiler::compile(&expr);
+                let value = calc::vm::eval(&ops);
                 println!("{value}");
             }
             Err(ReadlineError::Interrupted | ReadlineError::Eof) => break,
