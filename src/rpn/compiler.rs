@@ -1,10 +1,12 @@
+use super::op::Op;
 use crate::expr::BinaryOp;
 use crate::expr::Expr;
 use crate::expr::UnaryOp;
-use crate::op::Op;
 
-pub fn compile(expr: &Expr) -> Vec<Op> {
-    fn emit(expr: &Expr, ops: &mut Vec<Op>) {
+pub type Bytecode = Vec<Op>;
+
+pub fn compile(expr: &Expr) -> Bytecode {
+    fn emit(expr: &Expr, ops: &mut Bytecode) {
         match expr {
             Expr::Binary(expr) => {
                 emit(&expr.left, ops);

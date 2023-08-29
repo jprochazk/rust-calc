@@ -1,7 +1,7 @@
-use crate::op::Op;
+use super::op::Op;
 
 pub fn eval(ops: &[Op]) -> i64 {
-    let mut stack = Vec::with_capacity(16);
+    let mut stack = Vec::with_capacity(128);
 
     for op in ops {
         match op {

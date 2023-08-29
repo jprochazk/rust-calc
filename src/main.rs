@@ -40,8 +40,8 @@ fn repl() {
                 return;
             }
         };
-        let ops = calc::compiler::compile(&expr);
-        let value = calc::vm::eval(&ops);
+        let ops = calc::rpn::compiler::compile(&expr);
+        let value = calc::rpn::vm::eval(&ops);
         println!("{value}");
     }
 
